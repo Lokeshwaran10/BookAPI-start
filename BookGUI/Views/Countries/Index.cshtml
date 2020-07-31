@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BookApiProject.Dtos.CountryDto>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>@ViewBag.Message</h2>
+
+    <div>
+        <h2>List of Countries</h2>
+        <br/>
+        @foreach(var item in Model)
+        {
+            <p>
+                <strong>@item.Name</strong>
+            </p>
+        }
+    </div>
