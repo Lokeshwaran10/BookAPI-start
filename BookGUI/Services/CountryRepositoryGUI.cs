@@ -43,7 +43,28 @@ namespace BookGUI.Services
 
         public CountryDto GetCountryById(int countryId)
         {
-            throw new NotImplementedException();
+            CountryDto  country = new CountryDto();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:60039/api/");
+
+                var reponse = client.GetAsync($"countries/{countryId}");
+                reponse.Wait();
+
+                var result = reponse.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<CountryDto>();
+                    readTask.Wait();
+
+                    country = readTask.Result;
+                }
+
+            }
+
+            return country;
         }
 
         public CountryDto GetCountryOfAnAuthor(int authorId)
