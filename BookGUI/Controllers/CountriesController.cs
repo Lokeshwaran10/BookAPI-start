@@ -20,7 +20,7 @@ namespace BookGUI.Controllers
         public IActionResult Index()
         {
             var countries = _countryRepository.GetCountries();
-           // var countries = new List<CountryDto>();
+            //var countries = new List<CountryDto>();
             if(countries.Count() <=0)
             {
                 ViewBag.Message = "There was a problem retrieving countries from" +

@@ -1,4 +1,4 @@
-﻿using BookApiProject.Models;
+﻿  using BookApiProject.Models;
 using BookApiProject.Services;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace BookApiProject
 {
     public static class DbSeedingClass
     {
-        public static void SeedDataContext(this BookDbContext context)
+        public static void  SeedDataContext(this BookDbContext context)
         {
             var booksAuthors = new List<BookAuthor>()
             {
